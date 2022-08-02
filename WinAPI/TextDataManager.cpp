@@ -19,7 +19,6 @@ void TextDataManager::save(const char* fileName, vector<string> vStr)
 	strncpy_s(str, SAVE_BUFFER, vectorArrayCombine(vStr), SAVE_BUFFER - 1);
 	
 	file = CreateFile(fileName, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-
 	WriteFile(file, str, strlen(str), &write, NULL);
 	CloseHandle(file);
 
@@ -60,11 +59,9 @@ vector<string> TextDataManager::charArraySeparation(char charArray[])
 	char* tokenB;
 
 	tokenA = strtok_s(charArray, separator, &tokenB);
-	cout << tokenA << endl;
 	vArray.push_back(tokenA);
 	while (NULL != (tokenA = strtok_s(NULL, separator, &tokenB))) {
 		vArray.push_back(tokenA);
-		cout << tokenA << endl;
 	}
 
 	return vArray;
