@@ -3,12 +3,6 @@
 
 HRESULT SoundData::init(void)
 {
-	//BackGrond
-
-	//Effect
-
-	//UI
-
 	return S_OK;
 }
 

@@ -204,7 +204,6 @@ int Player::Damaged(void)
 		mbIsDie = true;
 		meCurrState = eState::DEATH;
 	}
-	cout << "hp: " << miCurrHp << endl;
 	if (prevHp > miFinalDamage) return miFinalDamage;
 	else return prevHp;
 }

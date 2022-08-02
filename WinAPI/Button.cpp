@@ -39,7 +39,6 @@ void Button::render(void)
 {
 	if (mbIsVisible) {
 		if (meShape == eButtonShapeType::RECTANGLE) {
-			//Rectangle(getMemDC(), mtRect.left, mtRect.top, mtRect.right, mtRect.bottom);
 
 			mcImage->frameRender(getMemDC(), mtRect.left, mtRect.top, miFrameX, 0);
 			if (msImageName == "button") {
@@ -49,34 +48,6 @@ void Button::render(void)
 				FONTMANAGER->drawText_C(getMemDC(), mtCenter.x - ButtonSmallTextGap * strlen(msText), mtCenter.y - ButtonSmallSize * 0.5, "Kostar", ButtonSmallSize, 700, msText, strlen(msText), RGB(25, 25, 25));
 			}
 			else if (msImageName != "") mcImage->render(getMemDC(), mtRect.left, mtRect.top);
-			//switch (meEvent)
-			//{
-			//case eMouseEventType::NONE: case eMouseEventType::UP: case eMouseEventType::CLICK:
-			//	
-			//	break;
-			//case eMouseEventType::OVER:
-			//	if (msImageName == "button") {
-			//		mcImage->frameRender(getMemDC(), mtRect.left, mtRect.top, 1, 0);
-			//		FONTMANAGER->drawText_C(getMemDC(), mtCenter.x - strlen(msText) * 0.5, mtCenter.y - 8, "Kostar", 15, 700, msText, strlen(msText), RGB(25, 25, 25));
-			//	}
-			//	else if (msImageName == "button_small") {
-			//		mcImage->frameRender(getMemDC(), mtRect.left, mtRect.top, 0, 0);
-			//		FONTMANAGER->drawText_C(getMemDC(), mtCenter.x - strlen(msText) * 0.5, mtCenter.y - ButtonSmallSize * 0.5, "Kostar", ButtonSmallSize, 700, msText, strlen(msText), RGB(25, 25, 25));
-			//	}
-			//	else if (msImageName != "") mcImage->render(getMemDC(), mtRect.left, mtRect.top);
-			//	break;
-			//case eMouseEventType::DOWN:
-			//	if (msImageName == "button") {
-			//		mcImage->frameRender(getMemDC(), mtRect.left, mtRect.top, 2, 0);
-			//		FONTMANAGER->drawText_C(getMemDC(), mtCenter.x - strlen(msText) * 0.5, mtCenter.y - 8, "Kostar", 15, 700, msText, strlen(msText), RGB(25, 25, 25));
-			//	}
-			//	else if (msImageName == "button_small") {
-			//		mcImage->frameRender(getMemDC(), mtRect.left, mtRect.top, 0, 0);
-			//		FONTMANAGER->drawText_C(getMemDC(), mtCenter.x - strlen(msText) * 0.5, mtCenter.y - ButtonSmallSize * 0.5, "Kostar", ButtonSmallSize, 700, msText, strlen(msText), RGB(25, 25, 25));
-			//	}
-			//	else if (msImageName != "") mcImage->render(getMemDC(), mtRect.left, mtRect.top);
-			//	break;
-			//}
 		}
 		else DrawIsometric(getMemDC(), mtIsometric);
 	}

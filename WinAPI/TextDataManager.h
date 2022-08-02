@@ -1,10 +1,6 @@
 #pragma once
 #include "SingletonBase.h"
-/*
-FILE* file;
-#include <fstream>
-Text, XML, INI, JSON
-*/
+
 #define SAVE_BUFFER 128
 #define LOAD_BUFFER 128
 

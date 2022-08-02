@@ -688,9 +688,3 @@ void ImageBase::loopRender(HDC hdc, const LPRECT drawArea, int offsetX, int offs
 void ImageBase::loopAlphaRender(HDC hdc, const LPRECT drawArea, int offsetX, int offsetY, BYTE alpha)
 {
 }
-
-//void ImageBase::aniRender(HDC hdc, int destX, int destY, Animation* ani)
-//{
-//	render(hdc, destX, destY, ani->getFramePos().x, ani->getFramePos().y,
-//		ani->getFrameWidth(), ani->getFrameHeight());
-//}

@@ -121,22 +121,16 @@ bool MouseManager::PointInRect(T t, POINT pt, int index)
 	if (PtInRect(&rc, pt)) {
 		if (meEvent == eMouseEventType::DOWN) {
 			miDownIndex = index;
-			//t->ButtonDown();
 			ResetValue();
 		}
 		else if (meEvent == eMouseEventType::UP) {
-			//t->ButtonUp();
 			if (miDownIndex == index) {
-				if (EVENTMANAGER->GetPhase() == eSelectPhase::BUTTON_SELECT) {
-					//t->ButtonClick();
-				}
 				t->ButtonClick();
 				miDownIndex = -1;
 			}
 			ResetValue();
 		}
 		else if(miDownIndex == -1) {
-			//meEvent = eMouseEventType::OVER;
 			t->ButtonOver();
 			ResetValue();
 		}
@@ -206,7 +200,6 @@ bool MouseManager::PointInRegion(T t, POINT pt, int index)
 
 		if (meEvent == eMouseEventType::R_DOWN) {
 			miDownIndex = index;
-			//t->ButtonDown();
 			ResetValue();
 		}
 		else if (meEvent == eMouseEventType::R_UP) {
@@ -218,9 +211,7 @@ bool MouseManager::PointInRegion(T t, POINT pt, int index)
 			ResetValue();
 		}
 		else if (miDownIndex == -1) {
-			//meEvent = eMouseEventType::OVER;
 			t->ButtonOver();
-			//ResetValue();
 		}
 		b = true;
 	}

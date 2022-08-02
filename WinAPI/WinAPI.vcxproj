@@ -192,14 +192,11 @@
     <ClInclude Include="SoundScene.h" />
     <ClInclude Include="StartScene.h" />
     <ClInclude Include="Stdafx.h" />
-    <ClInclude Include="TempSoundManager.h" />
-    <ClInclude Include="TempSoundTest.h" />
     <ClInclude Include="TextDataManager.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TownScene.h" />
-    <ClInclude Include="Unit.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
@@ -245,14 +242,11 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TempSoundManager.cpp" />
-    <ClCompile Include="TempSoundTest.cpp" />
     <ClCompile Include="TextDataManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TownScene.cpp" />
-    <ClCompile Include="Unit.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>

@@ -41,7 +41,6 @@ HRESULT Enemy::init(string name, eDirection dir, POINT pos, POINT rowcol, int in
 	Object::init(name, dir, pos, rowcol, index, isMovable);
 	meCurrState = eState::IDLE;
 	mtCurrFrame = { 0,0 };
-	//msTypeName = 
 	miMaxHp = miCurrHp = 50;
 	miMaxMp = miCurrMp = 20;
 	miAttack = 30;
@@ -137,7 +136,6 @@ void Enemy::Animation(void)
 			mtCurrFrame.x = 0;
 			break;
 		case eState::DEATH:
-			//if (mtCurrFrame.x > IMAGEMANAGER->findImage("rogue1_death")->getMaxFrameX()) mtCurrFrame.x = 0;
 			break;
 		}
 
@@ -199,7 +197,6 @@ int Enemy::Damaged(void)
 		miCurrHp = 0;
 		mbIsDie = true;
 	}
-	cout << "hp: " << miCurrHp << endl;
 	if (prevHp > miFinalDamage) return miFinalDamage;
 	else return prevHp;
 }

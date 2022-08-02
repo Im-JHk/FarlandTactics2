@@ -13,28 +13,17 @@ HRESULT GameNode::init(bool managerInit)
 
 	if (managerInit)
 	{
-		//로케일 설정
 		setlocale(LC_ALL, "Korean");
-
-		//타이머 초기화
 		SetTimer(_hWnd, 1, 10, NULL);
-
-		//키매니저 초기화
+		
 		KEYMANAGER->init();
-
-		//랜덤펑션 초기화
+		
 		RND->init();
-
-		//이미지매니저 초기화
+		
 		IMAGEMANAGER->init();
-		//ReleaseDC(_hWnd, _hdc);
-
-		//임시 사운드
-		TEMPSOUNDMANAGER->init();
-
+		
 		TIMEMANAGER->init();
-
-		//텍스트 데이터 매니저 초기화
+		
 		TEXTDATAMANAGER->init();
 
 		SCENEMANAGER->init();
@@ -62,27 +51,18 @@ void GameNode::release()
 {
 	if (_managerInit)
 	{
-		//타이머 해제
 		KillTimer(_hWnd, 1);
-		//키매니저 싱글톤 해제
 		KEYMANAGER->releaseSingleton();
-		//랜덤펑션 싱글톤 해제
 		RND->releaseSingleton();
 
-		//이미지매니저 해제, 싱글톤 해제
 		IMAGEMANAGER->release();
 		IMAGEMANAGER->releaseSingleton();
 		
-		//폰트매니저 싱글톤 해제
 		FONTMANAGER->releaseSingleton();
-
-		//템프사운드매니저 싱글톤 해제
-		TEMPSOUNDMANAGER->releaseSingleton();
 		
 		TIMEMANAGER->release();
 		TIMEMANAGER->releaseSingleton();
 
-		//텍스트 데이터 매니저 해제, 싱글톤 해제
 		TEXTDATAMANAGER->release();
 		TEXTDATAMANAGER->releaseSingleton();
 
@@ -110,13 +90,7 @@ void GameNode::release()
 
 		SCRIPTMANAGER->release();
 		SCRIPTMANAGER->releaseSingleton();
-
-		//백버퍼 이미지 해제
-		//SAFE_DELETE(_backBuffer);
 	}
-	//DC 해제
-	//SAFE_DELETE(_graphic);
-	//SAFE_DELETE(_bkPen);
 	ReleaseDC(_popUpWnd, _popDC);
 	ReleaseDC(_hWnd, _hdc);
 }

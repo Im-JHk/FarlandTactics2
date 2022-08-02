@@ -1,7 +1,4 @@
 #pragma once
-//===============================
-// # singletonBase # (ΩÃ±€≈Ê ∆–≈œ)
-//===============================
 template <class T>
 class SingletonBase
 {

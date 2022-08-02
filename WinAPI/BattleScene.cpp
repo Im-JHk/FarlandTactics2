@@ -42,21 +42,6 @@ HRESULT BattleScene::init()
 	mbIsSpellRangeOn = false;
 	mbIsSpellHitRangeOn = false;
 
-	//for (int i = 0; i < miCol; i++) {
-	//	for (int j = 0; j < miRow; j++) {
-	//		Tile* tile = new Tile;
-	//		tile->init(PointMake(miRow, miCol), j, i);
-	//		tile->SetEnable(true);
-	//		tile->SetVisible(true);
-	//		tile->RegistVoidFuncAsInt("over", std::bind(&BattleScene::ShowInfomation, this, std::placeholders::_1));
-	//		tile->RegistVoidFuncAsInt("unit", std::bind(&BattleScene::SelectUnit, this, std::placeholders::_1));
-	//		tile->RegistVoidFuncAsInt("move", std::bind(&BattleScene::SelectMoveTile, this, std::placeholders::_1));
-	//		tile->RegistVoidFuncAsInt("attack_type", std::bind(&BattleScene::SelectAttackType, this, std::placeholders::_1));
-	//		tile->RegistVoidFuncAsInt("attack", std::bind(&BattleScene::SelectAttackTile, this, std::placeholders::_1));
-	//		tile->RegistVoidFuncAsInt("spell", std::bind(&BattleScene::SelectSpellTile, this, std::placeholders::_1));
-	//		mvTile.push_back(tile);
-	//	}
-	//}
 	LoadTheMapInfo();
 
 	mcAStar = new AStar;
@@ -136,8 +121,6 @@ void BattleScene::release()
 	SAFE_DELETE(mcRange);
 	mcMapdata->Release();
 	SAFE_DELETE(mcMapdata);
-	//mcCurrMap->Release();
-	//SAFE_DELETE(mcCurrMap);
 }
 
 void BattleScene::update()
@@ -273,34 +256,6 @@ void BattleScene::LoadTheMapInfo()
 	PLAYERMANAGER->AddAllEnemy(mcCurrMap->GetVecEnemy());
 }
 
-bool BattleScene::OnTheTile(eMouseEventType type)
-{
-	//for (int i = 0; i < mvTile.size(); i++) {
-	//	ISOMETRIC iso = MoveIsometric(mvTile[i]->GetIsometric(), mtCameraRect);
-	//	HRGN hRgn = CreatePolygonRgn(iso.point, 4, ALTERNATE);
-	//	if (PtInRegion(hRgn, _ptMouse.x, _ptMouse.y)) {
-	//		miTileIndex = i;
-	//		if (type == eMouseEventType::UP) {
-	//			miPickTileIndex = i;
-	//			if(mbIsAddPlayer && !mbIsAddEnemy){
-	//				PLAYERMANAGER->AddPlayer("karin", eDirection::DOWN, mvTile[i]->GetCenter(), PointMake(mvTile[i]->GetRow(), mvTile[i]->GetCol()) , i);
-	//				mvTile[i]->SetType(eObjectType::PLAYER);
-	//				mbIsAddPlayer = false;
-	//			}
-	//			else if(mbIsAddEnemy && !mbIsAddPlayer){
-	//				PLAYERMANAGER->AddEnemy("rogue1", eDirection::DOWN, mvTile[i]->GetCenter(), PointMake(mvTile[i]->GetRow(), mvTile[i]->GetCol()), i);
-	//				mvTile[i]->SetType(eObjectType::ENEMY);
-	//				mbIsAddEnemy = false;
-	//			}
-	//		}
-	//		DeleteObject(hRgn);
-	//		return true;
-	//	}
-	//	DeleteObject(hRgn);
-	//}
-	return false;
-}
-
 void BattleScene::StartAStar()
 {
 	mcAStar->Algorithm(miStart, miEnd);
@@ -330,7 +285,6 @@ void BattleScene::MoveCharacter(eObjectType type)
 	}
 	else if (type == eObjectType::ENEMY) {
 		if (!mbIsStartMove) {
-			//PLAYERMANAGER->SetStateEnemy(eState::MOVE);
 			mvTile[(*mqPath.begin())]->SetType(eObjectType::TILE);
 			mbIsStartMove = true;
 		}

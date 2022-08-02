@@ -3,21 +3,17 @@
 
 HRESULT JsonSaveLoader::init(void)
 {
-	//! Do Nothing
 	return S_OK;
 }
 
 void JsonSaveLoader::release(void)
 {
-	//! Do Nothing
 }
 
 void JsonSaveLoader::saveString(char * fileName, string data)
 {
 	TCHAR* buf = (TCHAR*)data.c_str();
 	HANDLE file;
-	// Byte Order Mark: 바이트 순서 표식
-	// BOM을 [0]에 넣어서 리틀/빅 엔디안을 결정한다
 	WORD BOM = 0xFEFF;
 	DWORD dwBytes = 0;
 	DWORD dwRead;
@@ -33,13 +29,10 @@ void JsonSaveLoader::saveString(char * fileName, string data)
 		NULL
 	);
 
-	//INVALID_HANDLE_VALUE: 초기화를 위해 사용되며 값은 보통 -1
-
 	if (file == INVALID_HANDLE_VALUE) {
 		MessageBox(_hWnd, "생성 파일 에러", "에러", MB_OK);
 	}
 	else {
-		//WriteFile(file, &BOM, 2, &dwBytes, NULL);
 		WriteFile(file, buf, strlen(buf) * sizeof(TCHAR), &dwRead, NULL);
 		CloseHandle(file);
 	}
@@ -69,7 +62,6 @@ string JsonSaveLoader::loadString(char * fileName)
 		return "";
 	}
 	else {
-		//WriteFile(file, &BOM, 2, &dwBytes, NULL);
 		ReadFile(file, buf, 8192, &dwBytes, NULL);
 		CloseHandle(file);
 	}
@@ -88,13 +80,6 @@ void JsonSaveLoader::saveStringWithFileStream(char * fileName, string data)
 string JsonSaveLoader::loadStringWithFileStream(char * fileName)
 {
 	ifstream fileIn;
-	/*
-	ios::in		파일을 읽기만 가능한 모드로 개방
-	ios::out	파일을 쓰기만 가능한 모드로 개방	
-	ios::ate	파일 개방이 될 때 파일의 끝으로 파일 포인터 이동
-	ios::binary	바이너리 모드 개방
-	ios::app	데이터를 맨 끝에서 부터 추가
-	*/
 	fileIn.open(fileName, ios::in);
 
 	char data;
@@ -126,10 +111,6 @@ Json::Value JsonSaveLoader::loadJsonFile(char * fileName)
 
 	Json::Reader reader;
 	Json::Value root;
-
-	// 파서 & 피싱
-	// 피싱: 특정 문서를 읽어 들여서 이를 다른 프로그램이나 서브 루틴이 사용할수 있는 내부의 표현 방식으로 변환 시켜주느것
-	// 파서 : 파싱을 해주는 프로세서
 
 	bool parsingRet = reader.parse(jsonStr, root);
 	if (!parsingRet) {

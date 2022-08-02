@@ -6,8 +6,6 @@ HWND _hWnd;
 HWND _popUpWnd;
 HWND _dlgWnd;
 POINT _ptMouse = { 0, 0 };
-//Graphics _graphic;
-//Pen _bkPen;
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK PopUpProc(HWND, UINT, WPARAM, LPARAM);
@@ -51,12 +49,10 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 #ifdef FULLSCREEN
 	DEVMODE dm;
 
-	//ZeroMemory(&dm, sizeof(DEVMODE));
-
-	dm.dmBitsPerPel = 32;		//32비트 트루컬러
-	dm.dmPelsWidth = 1980;		//가로 해상도
-	dm.dmPelsHeight = 1020;		//세로 해상도
-	dm.dmDisplayFrequency = 60;	//재생빈도
+	dm.dmBitsPerPel = 32;
+	dm.dmPelsWidth = 1980;
+	dm.dmPelsHeight = 1020;
+	dm.dmDisplayFrequency = 60;
 
 	dm.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT | DM_DISPLAYFREQUENCY;
 
@@ -116,40 +112,13 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	return (int)message.wParam;
 }
 
-//! 윈도우 프로시저
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
 	return _mg->MainProc(hWnd, iMessage, wParam, lParam);
-	//HDC hdc;
-	//PAINTSTRUCT ps;
-
-	//switch (iMessage)
-	//{
-	//case WM_MOUSEMOVE:
-	//	_ptMouse.x = LOWORD(lParam);
-	//	_ptMouse.y = HIWORD(lParam);
-	//	break;
-	//case WM_RBUTTONUP:
-	//	cout << "o" << endl;
-	//	DialogBox(_hInstance, MAKEINTRESOURCE(IDD_DIALOG1), hWnd, DlgProc);
-	//case WM_KEYDOWN:
-	//	switch (wParam)
-	//	{
-	//	case VK_ESCAPE:
-	//		PostMessage(hWnd, WM_DESTROY, 0, 0);
-	//		break;
-	//	}
-	//	break;
-	//case WM_DESTROY:
-	//	PostQuitMessage(0);
-	//	return 0;
-	//}
-	//return (DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
 
 LRESULT CALLBACK PopUpProc(HWND hPop, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
-	//DialogBox(_hInstance, MAKEINTRESOURCE(IDD_DIALOG1), _hWnd, DlgProc);
 	return _mg->PopUpProc(hPop, iMessage, wParam, lParam);
 }
 

@@ -31,9 +31,6 @@
     <Filter Include="API FrameWork\Image">
       <UniqueIdentifier>{778ab1c1-8b0e-4832-aa27-6a4dad19b679}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API FrameWork\Sound">
-      <UniqueIdentifier>{dae1bd92-08c1-4856-a95a-c225e7f282ed}</UniqueIdentifier>
-    </Filter>
     <Filter Include="API FrameWork\Timer">
       <UniqueIdentifier>{9062aec2-23b8-4319-b2bc-d1c83d92f262}</UniqueIdentifier>
     </Filter>
@@ -101,12 +98,6 @@
     </ClInclude>
     <ClInclude Include="StartScene.h">
       <Filter>API FrameWork\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="TempSoundManager.h">
-      <Filter>API FrameWork\Sound</Filter>
-    </ClInclude>
-    <ClInclude Include="TempSoundTest.h">
-      <Filter>API FrameWork\Sound</Filter>
     </ClInclude>
     <ClInclude Include="FontManager.h">
       <Filter>API FrameWork\Manager</Filter>
@@ -204,9 +195,6 @@
     <ClInclude Include="DefinedDataType.h">
       <Filter>API FrameWork\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="Unit.h">
-      <Filter>API FrameWork\Object</Filter>
-    </ClInclude>
     <ClInclude Include="Script.h">
       <Filter>API FrameWork\Script</Filter>
     </ClInclude>
@@ -247,12 +235,6 @@
     </ClCompile>
     <ClCompile Include="StartScene.cpp">
       <Filter>API FrameWork\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="TempSoundManager.cpp">
-      <Filter>API FrameWork\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="TempSoundTest.cpp">
-      <Filter>API FrameWork\Sound</Filter>
     </ClCompile>
     <ClCompile Include="FontManager.cpp">
       <Filter>API FrameWork\Manager</Filter>
@@ -349,9 +331,6 @@
     </ClCompile>
     <ClCompile Include="DefinedDataType.cpp">
       <Filter>API FrameWork\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="Unit.cpp">
-      <Filter>API FrameWork\Object</Filter>
     </ClCompile>
     <ClCompile Include="Script.cpp">
       <Filter>API FrameWork\Script</Filter>

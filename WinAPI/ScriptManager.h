@@ -20,7 +20,6 @@ public:
 	void update(void);
 	void render(HDC hdc);
 
-	//vector<pair<string, const char*>> GetVecScript() { return mvScript; }
 	string GetCurrScript() { return mvScript[miCurrScriptCount]->GetScript(); }
 	bool GetIsPlayText() { return mbIsPlayText; }
 	bool GetIsConversationStart() { return mbIsConversationStart; }

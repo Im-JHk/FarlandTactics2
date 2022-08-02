@@ -180,10 +180,8 @@ void MapToolScene::render()
 	IMAGEMANAGER->render("bg_side", getMemDC(), WINSIZE_X - 100, 0);
 	for (int i = 0; i < mvButton.size(); i++) {
 		Rectangle(getMemDC(), mvButton[i]->GetRect().left, mvButton[i]->GetRect().top, mvButton[i]->GetRect().right, mvButton[i]->GetRect().bottom);
-		//IMAGEMANAGER->frameRender("tile", getMemDC(), mvButton[i]->GetRect().left, mvButton[i]->GetRect().top);
 		mvButton[i]->render();
 	}
-	//Rectangle(getMemDC(), mtObjViewRc.left, mtObjViewRc.top, mtObjViewRc.right, mtObjViewRc.bottom);
 	switch (static_cast<eMapObject>(miObjectNum))
 	{
 	case eMapObject::TILE_1:
@@ -214,13 +212,6 @@ void MapToolScene::render()
 		IMAGEMANAGER->frameRender("rogue1_idle", getMemDC(), mtObjViewRc.left, mtObjViewRc.top, 0, 3);
 		break;
 	}
-
-	//if (KEYMANAGER->GetBufferOn()) {
-	//	cout << "on" << endl;
-	//	msBuffer = KEYMANAGER->GetKeyBuffer().c_str();
-	//	FONTMANAGER->drawText_C(getMemDC(), WINSIZE_X - 300, WINSIZE_Y - 100, "Kostar", 30, 700, msBuffer, strlen(msBuffer), RGB(25, 25, 25));
-	//}
-	//else msBuffer = "";
 }
 
 void MapToolScene::SetAllOfTile(int num)
@@ -306,12 +297,6 @@ void MapToolScene::ObjectNext(void)
 void MapToolScene::EnableEditRow(void)
 {
 	cout << "EnableEditRow" << endl;
-	//if (!KEYMANAGER->GetBufferOn()) {
-	//	KEYMANAGER->SetBufferOn(true);
-	//}
-	//else {
-	//	KEYMANAGER->SetBufferOn(false);
-	//}
 }
 
 void MapToolScene::EnableEditCol(void)

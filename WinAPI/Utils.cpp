@@ -1,16 +1,6 @@
 #include "Stdafx.h"
 #include "Utils.h"
 
-/*
-Utils::Utils()
-{
-}
-
-Utils::~Utils()
-{
-}
-*/
-
 namespace MY_UTIL
 {
 	float getDistance(float startX, float startY, float endX, float endY)

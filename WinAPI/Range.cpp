@@ -61,23 +61,6 @@ void Range::FindFourDirectionTile(Tile* tile, int cost, int maxCost)
 			FindFourDirectionTile(mvTile[down], cost + 1, maxCost);
 		}
 	}
-
-	//if (row - 1 >= 0 && left >= 0 && mvTile[left]->GetType() == eObjectType::TILE) {
-	//	msRange.insert(left);
-	//	FindFourDirectionTile(mvTile[left], cost + 1, maxCost);
-	//}
-	//if (row + 1 < miRowMax && right < miRowMax * miColMax && mvTile[right]->GetType() == eObjectType::TILE) {
-	//	msRange.insert(right);
-	//	FindFourDirectionTile(mvTile[right], cost + 1, maxCost);
-	//}
-	//if (col - 1 >= 0 && up >= 0 && mvTile[up]->GetType() == eObjectType::TILE) {
-	//	msRange.insert(up);
-	//	FindFourDirectionTile(mvTile[up], cost + 1, maxCost);
-	//}
-	//if (col + 1 < miColMax && down < miRowMax * miColMax && mvTile[down]->GetType() == eObjectType::TILE) {
-	//	msRange.insert(down);
-	//	FindFourDirectionTile(mvTile[down], cost + 1, maxCost);
-	//}
 }
 
 void Range::FindFourDirectionTileExceptRceceiver(Tile * tile, eObjectType rcvType, int cost, int maxCost)
@@ -117,17 +100,4 @@ void Range::FindFourDirectionTileExceptRceceiver(Tile * tile, eObjectType rcvTyp
 			FindFourDirectionTileExceptRceceiver(mvTile[down], rcvType, cost + 1, maxCost);
 		}
 	}
-
-	//if (row + 1 < miRowMax && right < miRowMax * miColMax && (rType == eObjectType::TILE || rType == rcvType)) {
-	//	msRange.insert(right);
-	//	FindFourDirectionTileExceptRceceiver(mvTile[right], rcvType, cost + 1, maxCost);
-	//}
-	//if (col - 1 >= 0 && up >= 0 && (uType == eObjectType::TILE || uType == rcvType)) {
-	//	msRange.insert(up);
-	//	FindFourDirectionTileExceptRceceiver(mvTile[up], rcvType, cost + 1, maxCost);
-	//}
-	//if (col + 1 < miColMax && down < miRowMax * miColMax && (dType == eObjectType::TILE || dType == rcvType)) {
-	//	msRange.insert(down);
-	//	FindFourDirectionTileExceptRceceiver(mvTile[down], rcvType, cost + 1, maxCost);
-	//}
 }

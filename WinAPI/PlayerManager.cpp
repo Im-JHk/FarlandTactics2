@@ -21,11 +21,9 @@ void PlayerManager::release(void)
 {
 	cout << "rel" << endl;
 	for (int i = 0; i < mvPlayer.size(); i++) {
-		//mvPlayer[i]->release();
 		SAFE_DELETE(mvPlayer[i]);
 	}
 	for (int i = 0; i < mvEnemy.size(); i++) {
-		//mvEnemy[i]->release();
 		SAFE_DELETE(mvEnemy[i]);
 	}
 }
@@ -142,18 +140,6 @@ void PlayerManager::SpellPlayer(string spellName, set<int> msRange)
 		EFFECTMANAGER->AddEffect(spellName, eEventType::ATTACK, eAttackType::SPELL, eObjectType::ENEMY, eAnimationType::ONE, mvTile[iter]->GetCenter(), iter, iter, count * 0.15f, 0);
 		count++;
 	}
-	//for (auto iter = mvPlayer.begin(); iter != mvPlayer.end(); ++iter) {
-	//	if ((*iter)->GetName() == name) {
-	//		SetDamagedEnemyIndex(msRange);
-	//		(*iter)->SetState(eState::SPELL);
-	//		int count = 0;
-	//		for (auto iter : msRange) {
-	//			EFFECTMANAGER->AddEffect(spellName, eEventType::ATTACK, eAttackType::SPELL, eObjectType::ENEMY, eAnimationType::ONE, mvTile[iter]->GetCenter(), iter, iter, count * 0.15f, 0);
-	//			count++;
-	//		}
-	//		break;
-	//	}
-	//}
 }
 
 void PlayerManager::SpellEnemy(string spellName, set<int> msRange)
@@ -294,7 +280,6 @@ void PlayerManager::IsDiePlayer()
 	for (mviPlayer = mvPlayer.begin(); mviPlayer != mvPlayer.end(); ++mviPlayer) {
 		if ((*mviPlayer)->GetIsDie()) {
 			(*mviPlayer)->SetState(eState::DEATH);
-			//EFFECTMANAGER->AddEffect((*mviPlayer)->GetName() + "_death", eEventType::DIE, eAttackType::NONE, eObjectType::PLAYER, eAnimationType::ALL_LOOP, (*mviEnemy)->GetCenter(), (*mviEnemy)->GetIndex(), 0);
 		}
 	}
 }

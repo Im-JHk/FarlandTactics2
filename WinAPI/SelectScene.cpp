@@ -40,8 +40,6 @@ void SelectScene::render(void)
 	IMAGEMANAGER->render("select", getMemDC(), 0, 0);
 	mtSelect1->render();
 	mtSelect2->render();
-	//Rectangle(getMemDC(), mtSelect1->GetRect().left, mtSelect1->GetRect().top, mtSelect1->GetRect().right, mtSelect1->GetRect().bottom);
-	//Rectangle(getMemDC(), mtSelect2->GetRect().left, mtSelect2->GetRect().top, mtSelect2->GetRect().right, mtSelect2->GetRect().bottom);
 }
 
 void SelectScene::ChangeSceneMapTool()

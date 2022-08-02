@@ -58,7 +58,6 @@ void EnemyManager::SetStateIndex()
 void EnemyManager::AddEnemy(string name, eDirection dir, POINT pos, int index)
 {
 	Enemy* enemy = new Enemy;
-	//enemy->init(name, dir, pos, , index);
 	mvEnemy.push_back(enemy);
 }
 

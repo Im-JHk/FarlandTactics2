@@ -18,10 +18,9 @@ void ImageManager::release(void)
 
 ImageBase* ImageManager::addImage(string strKey, int width, int height)
 {
-	//추가하려는 이미지가 존재하는지 키값으로 확인
 	ImageBase* img = findImage(strKey);
 
-	if (img) return img;//있으면 반환
+	if (img) return img;
 
 	img = new ImageBase;
 	if (FAILED(img->init(width, height)))
@@ -30,8 +29,7 @@ ImageBase* ImageManager::addImage(string strKey, int width, int height)
 		return NULL;
 	}
 
-	//_mImageList.insert(pair<string, Image*>(strKey, img));
-	_mImageList.insert(make_pair(strKey, img));//좀더 심플해짐
+	_mImageList.insert(make_pair(strKey, img));
 
 	return img;
 }
@@ -40,18 +38,16 @@ ImageBase* ImageManager::addImage(string strKey, const char * fileName, int widt
 {
 	ImageBase* img = findImage(strKey);
 
-	if (img) return img;//있으면 반환
+	if (img) return img;
 
 	img = new ImageBase;
-	if (FAILED(img->init(fileName, width, height, isTrans, transColor)))//없으면 생성
+	if (FAILED(img->init(fileName, width, height, isTrans, transColor)))
 	{
-		//MY_UTIL::log(DEBUG_ALL_TAG, "이미지 생성 실패 : " + strKey);
 		SAFE_DELETE(img);
 		return NULL;
 	}
-
-	//_mImageList.insert(pair<string, Image*>(strKey, img));
-	_mImageList.insert(make_pair(strKey, img));//좀더 심플해짐
+	
+	_mImageList.insert(make_pair(strKey, img));
 
 	return img;
 }
@@ -60,17 +56,15 @@ ImageBase* ImageManager::addImage(string strKey, const char * fileName, float x,
 {
 	ImageBase* img = findImage(strKey);
 
-	if (img) return img;//있으면 반환
+	if (img) return img;
 
 	img = new ImageBase;
-	if (FAILED(img->init(fileName, x, y, width, height, isTrans, transColor))) //없으면 생성
+	if (FAILED(img->init(fileName, x, y, width, height, isTrans, transColor)))
 	{
 		SAFE_DELETE(img);
 		return NULL;
 	}
-
-	//_mImageList.insert(pair<string, Image*>(strKey, img));
-	_mImageList.insert(make_pair(strKey, img));//좀더 심플해짐
+	_mImageList.insert(make_pair(strKey, img));
 
 	return img;
 }
@@ -79,18 +73,16 @@ ImageBase* ImageManager::addFrameImage(string strKey, const char * fileName, int
 {
 	ImageBase* img = findImage(strKey);
 
-	if (img) return img;//있으면 반환
+	if (img) return img;
 
 	img = new ImageBase;
-	if (FAILED(img->init(fileName, width, height, maxFrameX, maxFrameY, isTrans, transColor)))//없으면 생성
+	if (FAILED(img->init(fileName, width, height, maxFrameX, maxFrameY, isTrans, transColor)))
 	{
-		//MY_UTIL::log(DEBUG_ALL_TAG, "프레임 이미지 생성 실패 : " + strKey);
 		SAFE_DELETE(img);
 		return NULL;
 	}
 
-	//_mImageList.insert(pair<string, Image*>(strKey, img));
-	_mImageList.insert(make_pair(strKey, img));//좀더 심플해짐
+	_mImageList.insert(make_pair(strKey, img));
 
 	return img;
 }
@@ -99,17 +91,16 @@ ImageBase* ImageManager::addFrameImage(string strKey, const char * fileName, flo
 {
 	ImageBase* img = findImage(strKey);
 
-	if (img) return img;//있으면 반환
+	if (img) return img;
 
 	img = new ImageBase;
-	if (FAILED(img->init(fileName, x, y, width, height, maxFrameX, maxFrameY, isTrans, transColor)))//없으면 생성
+	if (FAILED(img->init(fileName, x, y, width, height, maxFrameX, maxFrameY, isTrans, transColor)))
 	{
 		SAFE_DELETE(img);
 		return NULL;
 	}
 
-	//_mImageList.insert(pair<string, Image*>(strKey, img));
-	_mImageList.insert(make_pair(strKey, img));//좀더 심플해짐
+	_mImageList.insert(make_pair(strKey, img));
 
 	return img;
 }
@@ -118,16 +109,12 @@ ImageBase * ImageManager::findImage(string strKey)
 {
 	auto key = _mImageList.find(strKey);
 
-	//검색한 키를 찾았다면
 	if (key != _mImageList.end())
 	{
 		return key->second;
 	}
 	else {
-		//MY_UTIL::log(DEBUG_ALL_TAG, "이미지 검색 실패 : " + strKey);
 	}
-
-	//검색한 키로 이미지를 못찾았다면 리턴
 	return nullptr;
 }
 
@@ -147,13 +134,13 @@ bool ImageManager::deleteImage(string strKey)
 
 bool ImageManager::deleteAll()
 {
-	auto iter = _mImageList.begin();//   mapImageIter iter = _mImageList.begin();가 더 알아보기쉽다
+	auto iter = _mImageList.begin();
 
 	for (; iter != _mImageList.end();)
 	{
 		if (iter->second != NULL)
 		{
-			iter->second->release();//있을때만 지워주겠다
+			iter->second->release();
 			SAFE_DELETE(iter->second);
 			iter = _mImageList.erase(iter);
 		}
@@ -165,9 +152,6 @@ bool ImageManager::deleteAll()
 	_mImageList.clear();
 	return true;
 }
-////////////////////////
-// 일반 렌더         //
-/////////////////////
 void ImageManager::render(string strKey, HDC hdc)
 {
 	ImageBase* img = findImage(strKey);
@@ -185,9 +169,7 @@ void ImageManager::render(string strKey, HDC hdc, int destX, int destY, int sour
 	ImageBase* img = findImage(strKey);
 	if (img) img->render(hdc, destX, destY, sourX, sourY, sourWidth, sourHeight);
 }
-////////////////////////
-// 알파 렌더         //
-/////////////////////
+
 void ImageManager::alphaRender(string strKey, HDC hdc, BYTE alpha)
 {
 	ImageBase* img = findImage(strKey);
@@ -205,9 +187,7 @@ void ImageManager::alphaRender(string strKey, HDC hdc, int destX, int destY, int
 	ImageBase* img = findImage(strKey);
 	if (img) img->alphaRender(hdc, destX, destY, sourX, sourY, sourWidth, sourHeight, alpha);
 }
-////////////////////////
-// 프레임 렌더         //
-/////////////////////
+
 void ImageManager::frameRender(string strKey, HDC hdc, int destX, int destY)
 {
 	ImageBase* img = findImage(strKey);
